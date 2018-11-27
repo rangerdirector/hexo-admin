@@ -31,7 +31,6 @@ function _get(baseUrl, url, params) {
 module.exports = function (baseUrl) {
   var post = _post.bind(null, baseUrl)
   var get = _get.bind(null, baseUrl)
-
   return {
     posts: () => get('/posts/list'),
     post: (id, data) => {

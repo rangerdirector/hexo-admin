@@ -96,6 +96,7 @@ var Editor = React.createClass({
             <i className="fa fa-check-circle-o"/>
           </button>}
       </div>
+
       <div className="editor_main">
         <div className="editor_edit">
           <div className="editor_md-header">
@@ -114,6 +115,7 @@ var Editor = React.createClass({
             forceLineNumbers={this.state.checkingGrammar}
             adminSettings={this.props.adminSettings} />
         </div>
+
         <div className="editor_display">
           <div className="editor_display-header">
             <span className="editor_word-count">

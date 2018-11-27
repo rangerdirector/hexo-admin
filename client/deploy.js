@@ -11,7 +11,7 @@ var Deploy = React.createClass({
       stdout: '',
       stderr: '',
       error: null,
-      message: '',
+      message: 'deploy.sh', //默认值行 sh deploy.sh
       status: 'initial',
     };
   },
@@ -39,18 +39,18 @@ var Deploy = React.createClass({
   render: function () {
     var body;
     if (this.state.error) {
-      body = <h4>Error: {this.state.error}</h4>
+      body = <div style={{fontSize:'1em'}}>Error: {this.state.error}</div>
     } else if (this.state.status === 'loading') {
-      body = <h4>Loading...</h4>
+      body = <div style={{fontSize:'1em'}}>Deploying... Please don't anything until complete.</div>
     } else if (this.state.status === 'success') {
       body = (
         <div>
           <h4>Std Output</h4>
-          <pre>
+          <pre style={{fontSize:'0.8em',lineHeight:'1.2em'}}>
             {this.state.stdout}
           </pre>
           <h4>Std Error</h4>
-          <pre>
+          <pre style={{fontSize:'0.8em', lineHeight:'1.2em'}}>
             {this.state.stderr}
           </pre>
         </div>
@@ -59,18 +59,18 @@ var Deploy = React.createClass({
 
     return (
       <div className="deploy" style={divStyle}>
-        <p>
+        {/* <p>
           Type a message here and hit `deploy` to run your deploy script.
-        </p>
+        </p> */}
         <form className='deploy_form' onSubmit={this.handleSubmit}>
           <input
-            type="text"
+            type="text" 
             className="deploy_message"
             value={this.state.message}
             placeholder="Deploy/commit message"
             onChange={e => this.setState({message: e.target.value})}
           />
-          <input type="submit" value="Deploy" />
+          <input type="submit" value="Deploy to IPFS network" />
         </form>
         {body}
       </div>
